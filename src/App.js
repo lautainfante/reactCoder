@@ -1,14 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import {MiModulo} from './MiMoudulo';
+import "./App.css";
 import Navbar from './components/Navbar';
+import Cards from './components/Cards';
 
 function App() {
-  return (
-    <div>
-      <Navbar />
-    </div>
-  );
+  return <div className="App">
+    <header>
+      <nav>
+        <Navbar />
+      </nav>
+    </header>
+    <main>
+      <Cards />
+      <Cards/>
+    </main>
+  </div>
+  
 }
 
 export default App;
