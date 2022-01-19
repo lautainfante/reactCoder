@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from './components/Navbar';
 import Cards from './components/Cards';
+import Cont from './components/ItemCounter' ;
 
 function App() {
   return <div className="App">
@@ -12,6 +13,7 @@ function App() {
     <main>
       <Cards />
       <Cards/>
+      <Cont />
     </main>
   </div>
   
