@@ -1,9 +1,9 @@
 import "./App.css";
 import Navbar from './components/Navbar';
-import Cards from './components/Cards';
 import Cont from './components/ItemCounter' ;
-import Item from "./components/item/item";
-import { useEffect } from "react";
+import { useEffect, useState} from "react";
+import item from './components/item/item'
+
 
 
 
@@ -15,27 +15,46 @@ const PRODUCTS =[
 
 
 function App() {
-  useEffect(() =>{
-    const getProducts = () =>{
-      return new Promise((resolve,reject)=>{
-        setTimeout(() => resolve(PRODUCTS),reject(new Error("Se cayo el sistema")),4000);
-      });
-    };
-  });
-  return <div className="App">
-    <header>
-      <nav>
-        <Navbar />
-      </nav>
-    </header>
-    <main>
-      <Item key={PRODUCTS.id} Product={PRODUCTS[0]} />
-      <Item key={PRODUCTS.id} Product={PRODUCTS[1]} />
-      <Item key={PRODUCTS.id} Product={PRODUCTS[2]} />
-      <Cont />
-    </main>
-  </div>
+  const [products,setProducts]= useState([]);
+  const [isLoading,setIsLoading]= useState(false);
+  const [error,setError]= useState(null);
   
-}
+  useEffect(()=>{
+    const URL = "http://localhost:3001/productos";
+    setIsLoading(true);
+    fetch(URL)
+     .then((response)=> response.json())
+     .then((json)=>setProducts(json))
+     .catch((err)=>setError(err))
+     .finally(()=> setIsLoading(false));
+  },[]);
+
+  if (isLoading) {
+    return <p>Cargando productos..</p>;
+  }else if (error) {
+    return <p>Hubo un problema {error.message}</p>
+  } else 
+    return (
+    <div className="App">
+      <header>
+        <nav>
+          <Navbar />
+        </nav>
+      </header>
+      <main>
+        <div>
+          <ul>
+            {products.map((products)=>{
+              return <item productos={products}/>
+            })}
+          </ul>
+        </div>
+        <Cont />
+      </main>
+    </div>
+  );
+};
+
+
 
 export default App;
