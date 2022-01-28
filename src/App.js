@@ -2,7 +2,7 @@ import "./App.css";
 import Navbar from './components/Navbar';
 import Cont from './components/ItemCounter' ;
 import { useEffect, useState} from "react";
-import item from './components/item/item'
+import Item from './components/Item/Item.jsx'
 
 
 
@@ -45,7 +45,7 @@ function App() {
         <div>
           <ul>
             {products.map((products)=>{
-              return <item productos={products}/>
+              return <Item key={products.id} productos={products}/>
             })}
           </ul>
         </div>
