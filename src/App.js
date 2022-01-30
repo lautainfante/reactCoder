@@ -1,57 +1,21 @@
 import "./App.css";
-import Navbar from './components/Navbar';
-import Cont from './components/ItemCounter' ;
-import { useEffect, useState} from "react";
-import Item from './components/Item/Item.jsx'
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import Mercadopage from "./pages/Mercadopage";
+import Cards from "./components/Carprodu";
 
-
-
-
-const PRODUCTS =[
-  {id:0, name:"Horno Electrico", descripcion:"descripcion del objeto", price:1500},
-  {id:1, name:"Estufa Electrica", descripcion:"descripcion del objeto", price:6000},
-  {id:2, name:"Heladera", descripcion:"descripcion del objeto", price:50.000},
-];
 
 
 function App() {
-  const [products,setProducts]= useState([]);
-  const [isLoading,setIsLoading]= useState(false);
-  const [error,setError]= useState(null);
-  
-  useEffect(()=>{
-    const URL = "http://localhost:3001/productos";
-    setIsLoading(true);
-    fetch(URL)
-     .then((response)=> response.json())
-     .then((json)=>setProducts(json))
-     .catch((err)=>setError(err))
-     .finally(()=> setIsLoading(false));
-  },[]);
-
-  if (isLoading) {
-    return <p>Cargando productos..</p>;
-  }else if (error) {
-    return <p>Hubo un problema {error.message}</p>
-  } else 
-    return (
-    <div className="App">
-      <header>
-        <nav>
-          <Navbar />
-        </nav>
-      </header>
-      <main>
-        <div>
-          <ul>
-            {products.map((products)=>{
-              return <Item key={products.id} productos={products}/>
-            })}
-          </ul>
-        </div>
-        <Cont />
-      </main>
-    </div>
+   return (
+      <BrowserRouter>
+       <Routes>
+         <Route path="/">
+           <Route index element={<Homepage />} />
+           <Route path="/Mercado" element={<Mercadopage />} />
+         </Route>
+       </Routes>
+      </BrowserRouter>
   );
 };
 
