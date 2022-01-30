@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Mercadopage from "./pages/Mercadopage";
-import Cards from "./components/Carprodu";
+import Detallespage from "./pages/Detallepage";
 
 
 
@@ -12,7 +12,10 @@ function App() {
        <Routes>
          <Route path="/">
            <Route index element={<Homepage />} />
-           <Route path="/Mercado" element={<Mercadopage />} />
+           <Route path="/Mercado">
+             <Route index element={<Mercadopage />} />
+             <Route path="productId" element={<Detallespage />} />
+           </Route>
          </Route>
        </Routes>
       </BrowserRouter>
