@@ -1,4 +1,5 @@
 import react, {useState} from "react";
+import {Button} from "react-bootstrap";
 
 function Cont() {
     const[count,setCount] = useState(0);
@@ -16,10 +17,10 @@ function Cont() {
     };
     return (
         <div>
-            <h1>Cantidad</h1>
-            <button onClick={Restar}>-</button>
+            <h4>Selecione cantidad:</h4>
+            <Button variant="danger" onClick={Restar}>-</Button>
             <span id="contador">{count}</span>
-            <button onClick={Sumar}>+</button>
+            <Button variant="success" onClick={Sumar}>+</Button>
         </div>
     );
 };

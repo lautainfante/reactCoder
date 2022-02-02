@@ -4,28 +4,32 @@
             "id":0,
             "name":"Horno Electrico",
             "description":"Caracteristicas del producto a vender",
-            "price":1500
+            "price":1500,
+            "stock": 6
         
         },
         {
             "id":1,
             "name":"Horno Electrico",
             "description":"Caracteristicas del producto a vender",
-            "price":1500
+            "price":1500,
+            "stock": 6
         
         },
         {
             "id":2,
             "name":"Horno Electrico",
             "description":"Caracteristicas del producto a vender",
-            "price":1500
+            "price":1500,
+            "stock": 6
         
         },
         {
             "id":3,
             "name":"Horno Electrico",
             "description":"Caracteristicas del producto a vender",
-            "price":1500
+            "price":1500,
+            "stock": 6
         
         }
     ]

@@ -1,5 +1,7 @@
 import { Card,Button } from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
+import Cont from "../ItemCounter";
+
 
 
 function Item({ productos }) {
@@ -16,8 +18,10 @@ function Item({ productos }) {
             <Card.Body>
                 <Card.Title>{productos.name}</Card.Title>
                 <Card.Text>{productos.price}</Card.Text>
+                <Card.Text>Stock: {productos.stock}</Card.Text>
                 <Button variant="primary">Comprar</Button>
                 <Button onClick={goToDeteails} style={{marginLeft:'2rem'}} variant="primary">ver mas</Button>
+                <Cont />
                 <div id="caja">
                 <Card.Text>{productos.descripcion}</Card.Text>
                 </div>
