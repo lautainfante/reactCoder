@@ -17,9 +17,9 @@ function Cont() {
     };
     return (
         <div>
-            <h4>Selecione cantidad:</h4>
+            <h4 style={{color:'whitesmoke'}}>Selecione cantidad:</h4>
             <Button variant="danger" onClick={Restar}>-</Button>
-            <span id="contador">{count}</span>
+            <span style={{color:'whitesmoke', margin:'1rem'}} id="contador">{count}</span>
             <Button variant="success" onClick={Sumar}>+</Button>
         </div>
     );

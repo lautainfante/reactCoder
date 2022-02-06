@@ -5,10 +5,12 @@ import "../App.css";
 
 function Mercadopage() {
     return(
-        <div>
-            <Navbar />
-            <Cards />
-        </div>
+        <body style={{backgroundColor:'yellow'}}>
+            <div>
+                <Navbar />
+                <Cards  />
+            </div>
+        </body>
     )
 }
 

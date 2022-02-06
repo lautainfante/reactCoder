@@ -1,36 +1,34 @@
-import { Card } from "react-bootstrap";
 import React from "react";
 import Navbar from "../components/Navbar";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { Params, useParams } from "react-router-dom";
+import { useState } from "react";
+
 
 
 const Detallespage = () => {
-    const {productId} = useParams();
+    const { productId } = useParams;
     const [productos, setProduct] = useState();
 
-    useEffect(()=>{
-        const URL = 'http://http://localhost:3000/Mercado/${productId}'
+    useEffect(() =>{
+        const URL = 'http://localhost:3001/productos/${productId}'
         fetch(URL)
-         .then((res)=> res.json())
-         .then((data) => setProduct(data));
-    },   []);
+         .then(res => res.json())
+         .then((data)=> setProduct(data));
+    }, [productId]);
 
-    if(productos){
-        return(
-            <Navbar />,
+
+    
+    if (productos) {
+        return( 
             <div>
-                <Card style={{ width: '18rem', marginLeft: '2rem', marginBottom: '2rem', marginTop: '2rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
-                    <Card.Body>
-                        <Card.Title>{productos.name}</Card.Title>
-                        <Card.Text>{productos.price}</Card.Text>
-                        <Card.Text>{productos.descripcion}</Card.Text>
-                    </Card.Body>
-                </Card>
+                <Navbar />
+                <h1>{productos.name}</h1>
+                <p>{productos.price}</p>
             </div>
-        )
+        )  
     }
-}
+    return null;
+};
 
 export default Detallespage;
