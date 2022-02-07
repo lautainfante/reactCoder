@@ -17,6 +17,9 @@ const Navbar = () => {
               <li className="nav-item">
               <Link to="/Mercado">Productos</Link>
               </li>
+              <li className="nav-item">
+              <Link style={{marginLeft:'1rem'}} to="/Carrito">Carrito</Link>
+              </li>
             </ul>
             <form className="d-flex">
               <button className="btn btn-outline-success" type="submit">Search</button>

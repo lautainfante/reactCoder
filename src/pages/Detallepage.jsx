@@ -1,34 +1,34 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { useEffect } from "react";
-import { Params, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState } from "react";
+import Item from "../components/Item/Item";
 
 
 
 const Detallespage = () => {
-    const { productId } = useParams;
-    const [productos, setProduct] = useState();
+    const {productId} = useParams;
+    const [products, setProduct] = useState();
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() =>{
-        const URL = 'http://localhost:3001/productos/${productId}'
+        const URL = `http://localhost:3001/productos/${productId}`
         fetch(URL)
          .then(res => res.json())
-         .then((data)=> setProduct(data));
+         .then((data)=> setProduct(data))
+         .finally(() => setIsLoading(false));
     }, [productId]);
 
-
     
-    if (productos) {
-        return( 
-            <div>
-                <Navbar />
-                <h1>{productos.name}</h1>
-                <p>{productos.price}</p>
-            </div>
-        )  
-    }
-    return null;
+    if (isLoading || !products) return <p>Cargando...</p>;
+    return (
+        <div>
+            <Navbar />
+            <Item productos={products}/>
+        </div>
+    )
+        
 };
 
 export default Detallespage;

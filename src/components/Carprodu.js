@@ -27,7 +27,7 @@ function Cards () {
           <ul>
             {products.map((products)=>{
               return <Item key={products.id} productos={products}/>
-            })}
+            })};
           </ul>
       </div>
     )
