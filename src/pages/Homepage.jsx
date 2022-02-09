@@ -10,7 +10,7 @@ function Homepage() {
                 <Navbar />
             </header>
             <main>
-               <Logo /> 
+               <Logo className="position-absolute top-50 start-50 translate-middle" /> 
             </main>
         </body>
     )

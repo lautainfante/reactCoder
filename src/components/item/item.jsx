@@ -7,7 +7,7 @@ import Cont from "../ItemCounter";
 
 
 function Item({ productos }) {
-    
+
     let navigate = useNavigate();
 
     const goToDeteails = () => {
@@ -23,16 +23,16 @@ function Item({ productos }) {
 
     return (
         <Card border="light"  style={{ width: '18rem', marginLeft: '13rem', marginBottom: '2rem', marginTop: '2rem', backgroundColor:'black' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Img style={{width:'17rem', marginLeft:'10px'}} variant="top" src={productos.img} />
             <Card.Body>
                 <Card.Title style={{color:'whitesmoke'}}>{productos.name}</Card.Title>
                 <Card.Text style={{color:'whitesmoke'}}>{productos.price}</Card.Text>
                 <Card.Text style={{color:'whitesmoke'}}>Stock: {productos.stock}</Card.Text>
                 <Button variant="primary" onClick={handleClick}>Agregar carrito</Button>
                 <Button onClick={goToDeteails} style={{marginLeft:'2rem'}} variant="primary">ver mas</Button>
-                <Cont counter={counter} setCounter={setCounter} />
+                <Cont counter={counter} setCounter={setCounter}  />
                 <div id="caja">
-                <Card.Text style={{color:'whitesmoke'}}>{productos.descripcion}</Card.Text>
+                <Card.Text style={{color:'whitesmoke'}}>{productos.description}</Card.Text>
                 </div>
             </Card.Body>
         </Card>         

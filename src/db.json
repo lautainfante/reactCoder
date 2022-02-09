@@ -5,7 +5,8 @@
             "name":"Horno Electrico",
             "description":"Caracteristicas del producto a vender",
             "price":1500,
-            "stock": 6
+            "stock": 6,
+            "img":"https://i.pinimg.com/564x/b7/4c/0c/b74c0c72688c68d6911ec9323054f76f--purple-flower-photos-purple-flowers.jpg"
         
         },
         {
@@ -13,7 +14,8 @@
             "name":"Horno Electrico",
             "description":"Caracteristicas del producto a vender",
             "price":1500,
-            "stock": 6
+            "stock": 6,
+            "img":"https://i.pinimg.com/564x/b7/4c/0c/b74c0c72688c68d6911ec9323054f76f--purple-flower-photos-purple-flowers.jpg"
         
         },
         {
@@ -21,7 +23,8 @@
             "name":"Horno Electrico",
             "description":"Caracteristicas del producto a vender",
             "price":1500,
-            "stock": 6
+            "stock": 6,
+            "img":"https://i.pinimg.com/564x/b7/4c/0c/b74c0c72688c68d6911ec9323054f76f--purple-flower-photos-purple-flowers.jpg"
         
         },
         {
@@ -29,7 +32,8 @@
             "name":"Horno Electrico",
             "description":"Caracteristicas del producto a vender",
             "price":1500,
-            "stock": 6
+            "stock": 6,
+            "img":"https://i.pinimg.com/564x/b7/4c/0c/b74c0c72688c68d6911ec9323054f76f--purple-flower-photos-purple-flowers.jpg"
         
         }
     ]
