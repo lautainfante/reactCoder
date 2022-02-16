@@ -3,6 +3,15 @@ import { useCart } from "../contexts/CartContex";
 import Navbar from "../components/Navbar";
 import { Button } from "react-bootstrap";
 
+const borrar = () =>{
+    var producto = Document.getElementByid("conteiner");
+
+    var Dproducto = producto.filter((element,index) => {
+        return element - <p></p>
+    })
+};
+
+
 function Cartpage(params) {
     const { cart } = useCart();
     return(
@@ -11,11 +20,11 @@ function Cartpage(params) {
             {cart.map((purchase) =>{
                 return (
                     <Navbar />,
-                    <div>
+                    <div id="conteiner">
                         <p>{purchase.item.name}</p>
                         <p>{purchase.item.description}</p>
                         <p>{purchase.quantity}</p>
-                        <Button variant="danger">Borrar</Button>
+                        <Button onClick={ borrar } variant="danger">Borrar</Button>
                     </div>
                 );
             })}

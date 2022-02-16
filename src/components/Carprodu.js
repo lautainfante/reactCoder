@@ -4,11 +4,11 @@ import {getFirestore} from "../../firebase";
 import * as React from "react";
 
 function Cards () {
-  const [products,setData]= useState([]);
-  const [isLoading,setIsLoading]= useState(false);
-  const [error,setError]= useState(null);
+  const [products,setData]= React.useState([]);
+  const [isLoading,setIsLoading]= React.useState(false);
+  const [error,setError]= React.useState(null);
   
-  useEffect(() => {
+  React.useEffect(() => {
     const db = getFirestore();
     const productsCollection = db.collection("productos");
     
@@ -16,15 +16,16 @@ function Cards () {
       setIsLoading(true);
       try{
         const response = await productsCollection.get();
-        if (response.empty){console.log("No hay productos");
-        setData(response.docs.map((doc) =>({...doc.data(), id: doc.id })));
-      } try{
-        setError(err);
-      }finally{
-        setIsLoading(false);
-      };
+        if (response.empty) {console.log("No hay producto");
+          setData(response.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        } catch (err) {
+          setError (err);
+        }finally{
+          setIsLoading(false);
+        }
+      }
     };
-    getDataFromFirestore()
+    getDataFromFirestore();
 
    // const URL = "http://localhost:3001/productos";
    // setIsLoading(true);
@@ -33,7 +34,7 @@ function Cards () {
    //  .then((json)=>setProducts(json))
    //  .catch((err)=>setError(err))
    // .finally(()=> setIsLoading(false));
-  },  [];
+  },  []);
 
   if (isLoading) {
     return <p>Cargando productos..</p>;
