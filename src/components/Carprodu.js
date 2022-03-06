@@ -1,6 +1,6 @@
 import Item from "./Item/Item";
-import {useEffect, useState} from "react";
-import {getFirestore} from "../../firebase";
+import { useEffect } from "react";
+import {getFirestore} from "../Firebase";
 import * as React from "react";
 
 function Cards () {
@@ -8,32 +8,25 @@ function Cards () {
   const [isLoading,setIsLoading]= React.useState(false);
   const [error,setError]= React.useState(null);
   
-  React.useEffect(() => {
+  useEffect(() => {
     const db = getFirestore();
     const productsCollection = db.collection("productos");
-    
+    console.log(productsCollection);
     const getDataFromFirestore = async () => {
       setIsLoading(true);
-      try{
+      try {
         const response = await productsCollection.get();
-        if (response.empty) {console.log("No hay producto");
-          setData(response.docs.map((doc) => ({...doc.data(), id: doc.id})));
-        } catch (err) {
-          setError (err);
-        }finally{
-          setIsLoading(false);
+        if (response.empty) {
+          console.log("No hay producto");
+          setData(response.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         }
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
       }
     };
     getDataFromFirestore();
-
-   // const URL = "http://localhost:3001/productos";
-   // setIsLoading(true);
-   // fetch(URL)
-   //  .then((response)=> response.json())
-   //  .then((json)=>setProducts(json))
-   //  .catch((err)=>setError(err))
-   // .finally(()=> setIsLoading(false));
   },  []);
 
   if (isLoading) {

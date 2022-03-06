@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import Item from "../components/Item/Item";
+import Footer from "../components/Footer";
 
 
 
@@ -26,6 +27,7 @@ const Detallespage = () => {
         <div>
             <Navbar />
             <Item productos={products}/>
+            <Footer />
         </div>
     )
         

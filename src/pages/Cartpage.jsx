@@ -2,6 +2,7 @@ import React from "react";
 import { useCart } from "../contexts/CartContex";
 import Navbar from "../components/Navbar";
 import { Button } from "react-bootstrap";
+import Footer from "../components/Footer";
 
 const borrar = () =>{
     var producto = Document.getElementByid("conteiner");
@@ -28,6 +29,7 @@ function Cartpage(params) {
                     </div>
                 );
             })}
+            <Footer />
         </div>
     );
 };

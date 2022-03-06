@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import React from "react";
 import Cards from "../components/Carprodu";
 import "../App.css";
+import Footer from "../components/Footer";
 
 function Mercadopage() {
     return(
@@ -9,6 +10,7 @@ function Mercadopage() {
             <div>
                 <Navbar />
                 <Cards  />
+                <Footer />
             </div>
         </body>
     )

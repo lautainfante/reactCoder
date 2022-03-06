@@ -12,7 +12,7 @@ const firebaseConfig = {
     measurementId: "G-RJX8TKNMK2"
 };
 
-const app = firebase.initializeAoo(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 
 export const getFirebase = () => app;
 
